@@ -40,6 +40,9 @@ export function isGuiNumberValid(input: string | number): boolean {
 
   const n = input.toString()
   const regex: RegExp = /^\d{8}$/
+  if (!regex.test(n)) {
+    return false
+  }
 
   const checksum = GUI_NUMBER_COEFFICIENTS.reduce((sum, c, index) => {
     const product = c * parseInt(n.charAt(index), 10) // Step 1
