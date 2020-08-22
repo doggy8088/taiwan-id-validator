@@ -12,6 +12,11 @@ describe('isGuiNumValid', () => {
     expect(isGuiNumberValid(12345678)).toBe(false)
   })
 
+  it('should not accpet the arbitrary string', () => {
+    expect(isGuiNumberValid('abcdefgh')).toBe(false)
+    expect(isGuiNumberValid('7777777')).toBe(false)
+  })
+
   it('should return true if the input is correct', () => {
     expect(isGuiNumberValid('12345675')).toBe(true)
     expect(isGuiNumberValid('12345676')).toBe(true) // 6th char is 7
